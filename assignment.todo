@@ -1,0 +1,37 @@
+WebGPU Assignment 3 - Interactive WebGPU Effects:
+
+Mouse Input:
+    ✔ Set up mouse tracking system @done (3/31/2026, 6:53:04 PM)
+    ✔ Integrate mouse uniform into shader @done (3/31/2026, 6:53:12 PM)
+    ✔ Test mouse input with visual feedback @done (3/31/2026, 6:53:13 PM)
+
+Video Feedback System:
+    ✔ Initialize WebGPU context @done (3/31/2026, 6:53:53 PM)
+    ✔ Set up video capture from webcam @done (3/31/2026, 6:53:55 PM)
+    ✔ Implement feedback buffer system @done (3/31/2026, 6:53:56 PM)
+    ✔ Create basic video feedback shader @done (3/31/2026, 6:53:57 PM)
+
+Keyboard Input:
+    ☐ Create keyboard.js module
+    ☐ Track key presses and releases
+    ☐ Add keyboard uniform to shader
+    ☐ Test keyboard input integration
+
+Slider Input:
+    ☐ Add HTML slider elements to index.html
+    ☐ Create slider.js module for value tracking
+    ☐ Add slider uniforms to shader
+    ☐ Test slider parameter control
+
+Audio Input:
+    ☐ Set up microphone access using audio.js
+    ☐ Implement FFT analysis for frequency data
+    ☐ Add audio uniforms to shader (low, mid, high frequencies)
+    ☐ Test audio-reactive effects
+
+Shader Effects:
+    ☐ Implement mouse-controlled distortion
+    ☐ Add keyboard-triggered effects
+    ☐ Create slider-controlled parameters
+    ☐ Build audio-reactive visual effects
+

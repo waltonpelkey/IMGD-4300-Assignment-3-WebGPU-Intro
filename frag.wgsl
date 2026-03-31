@@ -16,9 +16,3 @@ fn fs( @builtin(position) pos : vec4f ) -> @location(0) vec4f {
 
   return vec4f( out.rgb, 1. );
 }
-
-// Keyboard input
-// Mouse input
-// Slider input
-// Audio Input
-
