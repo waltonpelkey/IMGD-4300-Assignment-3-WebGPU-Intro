@@ -34,13 +34,13 @@ Slider Input:
     ✔ Add HTML slider elements to index.html @done (3/31/2026, 7:22:37 PM)
     ✔ Create slider.js module for value tracking @done (3/31/2026, 7:22:38 PM)
     ✔ Add slider uniforms to shader @done (3/31/2026, 7:22:39 PM)
-    ☐ Test slider parameter control
+    ✔ Test slider parameter control @done (3/31/2026, 7:36:38 PM)
 
 Audio Input:
-    ☐ Set up microphone access using audio.js
-    ☐ Implement FFT analysis for frequency data
-    ☐ Add audio uniforms to shader (low, mid, high frequencies)
-    ☐ Test audio-reactive effects
+    ✔ Set up microphone access using audio.js @done (3/31/2026, 7:40:23 PM)
+    ✔ Implement FFT analysis for frequency data @done (3/31/2026, 7:42:43 PM)
+    ✔ Add audio uniforms to shader (low, mid, high frequencies) @done (3/31/2026, 7:42:44 PM)
+    ✔ Test audio-reactive effects @done (3/31/2026, 7:43:31 PM)
 
 Shader Effects:
     ☐ Implement mouse-controlled distortion

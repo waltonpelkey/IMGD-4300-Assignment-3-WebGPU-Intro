@@ -3,6 +3,7 @@ import { default as Video    } from './video.js'
 import { default as Mouse    } from './mouse.js'
 import { default as Keyboard } from './keyboard.js'
 import { default as Slider   } from './slider.js'
+import { default as Audio    } from './audio.js'
 
 const sg     = await gulls.init(),
       frag   = await gulls.import( 'frag.wgsl' ),
@@ -12,12 +13,14 @@ await Video.init()
 Mouse.init()
 Keyboard.init()
 Slider.init()
+await Audio.start()
 
 const back = new Float32Array( gulls.width * gulls.height * 4 )
 const feedback_t = sg.texture( back )
 const mouse_u = sg.uniform( Mouse.values ) 
 const keyboard_u = sg.uniform([0, 0, 0, 0]) // W, A, S, D keys
 const slider_u = sg.uniform([Slider.value[0], 0, 0, 0])
+const audio_u = sg.uniform([0, 0, 0, 0])
 
 const render = await sg.render({
   shader,
@@ -28,6 +31,7 @@ const render = await sg.render({
     feedback_t,
     keyboard_u,
     slider_u,
+    audio_u,
     sg.video( Video.element )
   ],
   copy: feedback_t
@@ -35,6 +39,16 @@ const render = await sg.render({
 
 setInterval(() => {
   sg.device.queue.writeBuffer( mouse_u, 0, new Float32Array( Mouse.values ) )
+
+  // Update audio uniform from FFT low/mid/high values
+  const audioValues = [
+    Audio.low || 0,
+    Audio.mid || 0,
+    Audio.high || 0,
+    0
+  ]
+  sg.device.queue.writeBuffer( audio_u, 0, new Float32Array( audioValues ) )
+
   // Update keyboard uniform with WASD key states
   const keyboardValues = [
     Keyboard.isKeyPressed('w') ? 1 : 0,  // W key
@@ -52,5 +66,6 @@ setInterval(() => {
   // Debug logging
   console.log('Keyboard state', keyboardValues, 'Slider', sliderValue)
 }, 1000/60)
+  
 
 sg.run( render )
