@@ -16,9 +16,9 @@ fn fs( @builtin(position) pos : vec4f ) -> @location(0) vec4f {
 
   let out = video * .05 + fb * .975;
 
-  // Slider debug effect: overlay color based on slider.x value
-  let overlay = vec4f(1.0, 0.0, 0.0, 1.0);
-  let finalColor = mix(vec4f(out.rgb, 1.0), overlay, slider.x);
+  // Slider grayscale effect (0 = black, 1 = white)
+  let gray = mix(vec3f(0.0, 0.0, 0.0), vec3f(1.0, 1.0, 1.0), slider.x);
+  let outGray = mix(vec3f(out.rgb), gray, slider.x);
 
-  return finalColor;
+  return vec4f(outGray, 1.0);
 }
