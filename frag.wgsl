@@ -14,11 +14,9 @@ fn fs( @builtin(position) pos : vec4f ) -> @location(0) vec4f {
 
   let fb = textureSample( backBuffer, videoSampler, p );
 
-  let out = video * .05 + fb * .975;
-
-  // Slider grayscale effect (0 = black, 1 = white)
-  let gray = mix(vec3f(0.0, 0.0, 0.0), vec3f(1.0, 1.0, 1.0), slider.x);
-  let outGray = mix(vec3f(out.rgb), gray, slider.x);
-
-  return vec4f(outGray, 1.0);
+  // Fully controlled grayscale from slider.
+  // 0 → black, 1 → white; video is ignored so effect is obvious.
+  let gray = slider.x;
+  return vec4f(vec3f(gray), 1.0);
+}
 }
