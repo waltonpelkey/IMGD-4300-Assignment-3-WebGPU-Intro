@@ -10,18 +10,23 @@ await Video.init()
 Mouse.init()
 
 const back = new Float32Array( gulls.width * gulls.height * 4 )
-const feedback_t = sg.texture( back ) 
+const feedback_t = sg.texture( back )
+const mouse_u = sg.uniform( Mouse.values ) 
 
 const render = await sg.render({
   shader,
   data:[
     sg.uniform([ sg.width, sg.height ]),
-    sg.uniform( Mouse.values ),
+    mouse_u,
     sg.sampler(),
     feedback_t,
     sg.video( Video.element )
   ],
   copy: feedback_t
 })
+
+setInterval(() => {
+  sg.device.queue.writeBuffer( mouse_u, 0, new Float32Array( Mouse.values ) )
+}, 1000/60)
 
 sg.run( render )
