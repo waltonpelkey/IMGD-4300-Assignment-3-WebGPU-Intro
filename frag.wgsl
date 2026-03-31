@@ -16,7 +16,6 @@ fn fs( @builtin(position) pos : vec4f ) -> @location(0) vec4f {
 
   // Fully controlled grayscale from slider.
   // 0 → black, 1 → white; video is ignored so effect is obvious.
-  let gray = slider.x;
+  let gray = clamp(slider.x, 0.0, 1.0);
   return vec4f(vec3f(gray), 1.0);
-}
 }

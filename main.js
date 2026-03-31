@@ -17,7 +17,7 @@ const back = new Float32Array( gulls.width * gulls.height * 4 )
 const feedback_t = sg.texture( back )
 const mouse_u = sg.uniform( Mouse.values ) 
 const keyboard_u = sg.uniform([0, 0, 0, 0]) // W, A, S, D keys
-const slider_u = sg.uniform( Slider.value )
+const slider_u = sg.uniform([Slider.value[0], 0, 0, 0])
 
 const render = await sg.render({
   shader,
@@ -45,11 +45,12 @@ setInterval(() => {
   sg.device.queue.writeBuffer( keyboard_u, 0, new Float32Array( keyboardValues ) )
 
   // Update slider uniform
-  const sliderValues = [Slider.value[0], 0, 0, 0]
+  const sliderValue = Math.min(1, Math.max(0, Number(Slider.value[0] || 0)))
+  const sliderValues = [sliderValue, 0, 0, 0]
   sg.device.queue.writeBuffer( slider_u, 0, new Float32Array( sliderValues ) )
 
   // Debug logging
-  console.log('Keyboard state', keyboardValues, 'Slider', sliderValues[0])
+  console.log('Keyboard state', keyboardValues, 'Slider', sliderValue)
 }, 1000/60)
 
 sg.run( render )
