@@ -2,6 +2,7 @@ import { default as gulls } from './gulls.js'
 import { default as Video    } from './video.js'
 import { default as Mouse    } from './mouse.js'
 import { default as Keyboard } from './keyboard.js'
+import { default as Slider   } from './slider.js'
 
 const sg     = await gulls.init(),
       frag   = await gulls.import( 'frag.wgsl' ),
@@ -10,11 +11,13 @@ const sg     = await gulls.init(),
 await Video.init()
 Mouse.init()
 Keyboard.init()
+Slider.init()
 
 const back = new Float32Array( gulls.width * gulls.height * 4 )
 const feedback_t = sg.texture( back )
 const mouse_u = sg.uniform( Mouse.values ) 
 const keyboard_u = sg.uniform([0, 0, 0, 0]) // W, A, S, D keys
+const slider_u = sg.uniform( Slider.value )
 
 const render = await sg.render({
   shader,
@@ -24,6 +27,7 @@ const render = await sg.render({
     sg.sampler(),
     feedback_t,
     keyboard_u,
+    slider_u,
     sg.video( Video.element )
   ],
   copy: feedback_t
