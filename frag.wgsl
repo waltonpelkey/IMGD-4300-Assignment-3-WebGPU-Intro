@@ -14,14 +14,7 @@ fn fs( @builtin(position) pos : vec4f ) -> @location(0) vec4f {
 
   let out = video * .05 + fb * .975;
 
-  // Test: draw a circle at mouse position
-  let mouseDist = distance( p, mouse.xy );
-  let circle = smoothstep( 0.2, 0.15, mouseDist ); 
-  
-  // Add red circle if mouse is clicked, white if just hovering
-  let mouseColor = mix( vec4f(1., 1., 1., 1.), vec4f(1., 0., 0., 1.), mouse.z );
-  
-  return mix( vec4f(out.rgb, 1.), mouseColor, circle );
+  return vec4f( out.rgb, 1. );
 }
 
 // Keyboard input
