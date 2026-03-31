@@ -26,6 +26,7 @@ const render = await sg.render({
 })
 
 setInterval(() => {
+  console.log( 'Mouse:', Mouse.values )
   sg.device.queue.writeBuffer( mouse_u, 0, new Float32Array( Mouse.values ) )
 }, 1000/60)
 
