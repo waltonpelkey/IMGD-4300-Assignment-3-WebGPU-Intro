@@ -31,9 +31,9 @@ Keyboard Input:
     ✔ Test keyboard input integration with shader effects @done (3/31/2026, 7:11:34 PM)
 
 Slider Input:
-    ☐ Add HTML slider elements to index.html
-    ☐ Create slider.js module for value tracking
-    ☐ Add slider uniforms to shader
+    ✔ Add HTML slider elements to index.html @done (3/31/2026, 7:22:37 PM)
+    ✔ Create slider.js module for value tracking @done (3/31/2026, 7:22:38 PM)
+    ✔ Add slider uniforms to shader @done (3/31/2026, 7:22:39 PM)
     ☐ Test slider parameter control
 
 Audio Input:

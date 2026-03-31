@@ -44,8 +44,12 @@ setInterval(() => {
   ]
   sg.device.queue.writeBuffer( keyboard_u, 0, new Float32Array( keyboardValues ) )
 
+  // Update slider uniform
+  const sliderValues = [Slider.value[0], 0, 0, 0]
+  sg.device.queue.writeBuffer( slider_u, 0, new Float32Array( sliderValues ) )
+
   // Debug logging
-  console.log('Keyboard state', keyboardValues)
+  console.log('Keyboard state', keyboardValues, 'Slider', sliderValues[0])
 }, 1000/60)
 
 sg.run( render )
