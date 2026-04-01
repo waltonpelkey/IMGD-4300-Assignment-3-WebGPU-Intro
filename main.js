@@ -18,9 +18,11 @@ await Audio.start()
 const back = new Float32Array( gulls.width * gulls.height * 4 )
 const feedback_t = sg.texture( back )
 const mouse_u = sg.uniform( Mouse.values ) 
-const keyboard_u = sg.uniform([0, 0, 0, 0]) // W, A, S, D keys
+const keyboard_u = sg.uniform([0, 0, 0, 0])
 const slider_u = sg.uniform([Slider.value[0], 0, 0, 0])
 const audio_u = sg.uniform([0, 0, 0, 0])
+const timeBuffer = new Float32Array([0]);
+const time_u = sg.uniform(timeBuffer);
 
 const render = await sg.render({
   shader,
@@ -32,6 +34,7 @@ const render = await sg.render({
     keyboard_u,
     slider_u,
     audio_u,
+    time_u,
     sg.video( Video.element )
   ],
   copy: feedback_t
@@ -62,6 +65,10 @@ setInterval(() => {
   const sliderValue = Math.min(1, Math.max(0, Number(Slider.value[0] || 0)))
   const sliderValues = [sliderValue, 0, 0, 0]
   sg.device.queue.writeBuffer( slider_u, 0, new Float32Array( sliderValues ) )
+
+  // Update time uniform
+  timeBuffer[0] = performance.now() * 0.001;
+  sg.device.queue.writeBuffer(time_u, 0, timeBuffer);
 
   // Debug logging
   console.log('Keyboard state', keyboardValues, 'Slider', sliderValue)
