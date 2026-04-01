@@ -1,22 +1,32 @@
 <!doctype html>
 <html lang='en'>
-  <head>
-    <meta charset='utf-8'>
-    <script src='main.js' type='module'></script>
 
-    <script src='https://cdn.jsdelivr.net/npm/microlight@latest'></script>
+<head>
+  <meta charset='utf-8'>
+  <script src='main.js' type='module'></script>
+  <link rel='shortcut icon' href='data:image/x-icon;,' type='image/x-icon'>
+  <title>Water Ripple Shader</title>
+</head>
 
-    <link rel='shortcut icon' href='data:image/x-icon;,' type='image/x-icon'> 
-  </head>
-  <body>
-    <span id='buttons'>
-      <button>main.js</button>
-      <button>frag.wgsl</button>
-    </span>
-    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+<body>
+  <p>Click the canvas to place ripples.</p>
+  <p>Press r to toggle rain.</p>
+  <p>Use the slider to change the water tint.</p>
+  <p>Use audio input to disturb the water's surface.</p>
+  <input type='range' min='1' max='100' value='50' id='myRange'>
+  <canvas></canvas>
+  <p>Made by Walton Pelkey</p>
+  <p>Credits:</p>
+  <p>
+    Link to original author of the worley water shader:
+    <a href="https://www.shadertoy.com/view/llS3RK">https://www.shadertoy.com/view/llS3RK</a>
+  </p>
+  <p>
+    Link to original author of the worley water shader:
+    <a href="https://www.shadertoy.com/view/llS3RK" target="_blank" rel="noopener noreferrer">
+      https://www.shadertoy.com/view/llS3RK
+    </a>
+  </p>
+</body>
 
-    <code class='code'></code>
-
-    <canvas></canvas>
-  </body>
 </html>

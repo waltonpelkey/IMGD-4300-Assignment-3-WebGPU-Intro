@@ -4,11 +4,9 @@ const Slider = {
     const slider = document.getElementById('myRange')
     if (!slider) return
 
-    // Start value as 0..1
     Slider.value[0] = slider.value / 100
-
-    slider.addEventListener('input', (e) => {
-      Slider.value[0] = e.target.value / 100
+    slider.addEventListener('input', event => {
+      Slider.value[0] = event.target.value / 100
     })
   }
 }

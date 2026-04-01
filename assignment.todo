@@ -43,9 +43,13 @@ Audio Input:
     ✔ Test audio-reactive effects @done (3/31/2026, 7:43:31 PM)
 
 Shader Effects:
-    ☐ Implement a basic Worley noise function in frag.wgsl
-
+    ✔ Implement a basic Worley noise function in frag.wgsl @done (4/1/2026, 10:56:44 AM)
+    ✔ Click to create a ripple effect @done (4/1/2026, 5:33:50 PM)
+    ✔ Press R to create rain ripple effect @done (4/1/2026, 5:33:51 PM)
+    ✔ Audio changes the distortion strength of the water @done (4/1/2026, 5:34:03 PM)
+    ✔ Slider changes the color tint of the water @done (4/1/2026, 5:34:04 PM)
 
 // Notes:
 - I wanted to use a Worley noise to make something that looked like water
-    - https://www.shadertoy.com/view/llS3RK
+    - Link to original author of the worley water shader: https://www.shadertoy.com/view/llS3RK
+    - Link to the original author of the ripple shader: https://www.shadertoy.com/view/ldfyzl
